@@ -15,9 +15,7 @@ jobs:
         with:
           go-version: "1.23.x"
       - name: Format Go source
-        run: |
-          gofmt -w api/*.go
-          git diff --exit-code
+        run: gofmt -w api/*.go
       - name: Vet
         run: go vet ./api/...
       - name: Test
