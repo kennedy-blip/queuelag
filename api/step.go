@@ -28,7 +28,7 @@ type Telemetry struct {
 }
 func clamp(v,lo,hi float64) float64 { return math.Max(lo,math.Min(hi,v)) }
 
-func Handler(w http.ResponseWriter,r *http.Request) {
+func stepHandler(w http.ResponseWriter,r *http.Request) {
 	w.Header().Set("Content-Type","application/json");w.Header().Set("Cache-Control","no-store")
 	if r.Method!="POST" { w.Header().Set("Allow","POST");http.Error(w,`{"error":"method not allowed"}`,http.StatusMethodNotAllowed);return }
 	var req StepRequest
