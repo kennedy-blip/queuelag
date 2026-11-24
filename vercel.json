@@ -1,12 +1,12 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/**/*.go", "use": "@vercel/go" },
+    { "src": "api/queues.go", "use": "@vercel/go" },
     { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/queues", "dest": "/api/queues.go" },
-    { "src": "/api/step", "dest": "/api/step.go" },
+    { "src": "/api/queues/?$", "dest": "/api/queues.go" },
+    { "src": "/api/step/?$", "dest": "/api/queues.go" },
     { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
